@@ -151,3 +151,36 @@ rest参数只能写在最后，前面用...标识，从运行结果可知，传�
 
 因为rest参数是ES6新标准，所以你需要测试一下浏览器是否支持。
 ```
+10. `return语句的注意事项` : JavaScript引擎有一个在`行末自动添加分号的机制`，这可能让你`栽到return语句的一个大坑`
+```
+###
+function foo() {
+    return { name: 'foo' };
+}
+
+foo(); // { name: 'foo' }
+如果把return语句拆成两行：
+
+###
+function foo() {
+    return
+        { name: 'foo' };
+}
+
+foo(); // undefined
+要小心了，由于JavaScript引擎在行末自动添加分号的机制，上面的代码实际上变成了：
+
+function foo() {
+    return; // 自动添加了分号，相当于return undefined;
+        { name: 'foo' }; // 这行语句已经没法执行到了
+}
+
+###
+所以正确的多行写法是：
+
+function foo() {
+    return { // 这里不会自动加分号，因为{表示语句尚未结束
+        name: 'foo'
+    };
+}
+```

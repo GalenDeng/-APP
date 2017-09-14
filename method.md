@@ -271,3 +271,46 @@ new String('str') === 'str'; // false
 123..toString(); // '123', 注意是两个点！
 (123).toString(); // '123'
 ```
+16. `module.exports VS exports`
+```
+给exports赋值是无效的，因为赋值后，module.exports仍然是空对象{}
+
+如果要输出一个键值对象{}，可以利用exports这个已存在的空对象{}，并继续在上面添加新的键值；
+
+如果要输出一个函数或数组，必须直接对module.exports对象赋值。
+
+所以我们可以得出结论：直接对module.exports赋值，可以应对任何情况
+
+强烈建议使用module.exports = xxx的方式来输出模块变量
+```
+17. `单元测试`
+```
+单元测试是用来对一个模块、一个函数或者一个类来进行正确性检验的测试工作
+```
+18. `devDependencies` : 开发的时候用
+```
+如果一个模块在运行的时候并不需要，仅仅在开发时才需要，就可以放到devDependencies中。这样，正式打包发布时，devDependencies的包不会被包含进来。
+然后使用npm install安装。
+```
+12. `mocha` : `单元测试`
+```
+mocha默认会执行test目录下的所有测试，不要去改变默认目录
+```
+13. `npm test` : `执行命令`
+```
+我们在package.json中添加npm命令：
+
+{
+  ...
+
+  "scripts": {
+    "test": "mocha"
+  },
+
+  ...
+}
+然后在hello-test目录下执行命令：
+
+C:\...\hello-test> npm test
+可以得到和上面一样的输出。这种方式通过npm执行命令
+```

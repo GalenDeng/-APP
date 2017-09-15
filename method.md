@@ -314,3 +314,4 @@ mocha默认会执行test目录下的所有测试，不要去改变默认目录
 C:\...\hello-test> npm test
 可以得到和上面一样的输出。这种方式通过npm执行命令
 ```
+14. `DOM` : `Document Object Model(文档对象模型)的缩写`

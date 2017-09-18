@@ -315,3 +315,8 @@ C:\...\hello-test> npm test
 可以得到和上面一样的输出。这种方式通过npm执行命令
 ```
 14. `DOM` : `Document Object Model(文档对象模型)的缩写`
+
+15. `abs(x:number):number`
+```
+该代码的意思是： x的数据类型为number abs(x:number)的数据类型为number
+```
